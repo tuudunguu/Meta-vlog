@@ -17,7 +17,7 @@ export const AllBlogPost = ({ articles }) => {
               <h3 className="text-xs font-bold text-[#495057]">Branding</h3>
             </div>
           </div>
-          <div className="w-full h-fit flex flex-col justify-between items-center gap-y-8">
+          <div className="w-full h-fit flex flex-wrap justify-between items-center gap-y-8 m-auto">
             {articles.map((item, index) => {
               return (
                 <>

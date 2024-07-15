@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-y-16 bg-white">
       <Navbar />
-      <Carousel />
+      <Carousel articles={articles} />
       <AllBlogPost articles={articles} />
       <Footer />
     </div>

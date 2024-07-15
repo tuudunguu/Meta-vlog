@@ -2,8 +2,8 @@
 
 export const BlogCard = ({ picture, tag, header, date }) => {
   return (
-    <div className="w-full h-[476px] rounded-xl border-2 border-gray-400 p-4 flex flex-col justify-between items-center gap-y-4">
-      <div className="w-[350px] rounded-md">
+    <div className="w-[358px] h-[476px] rounded-xl border-2 border-gray-400 p-4 flex flex-col justify-between items-center gap-y-4">
+      <div className="w-full rounded-md">
         <img src={picture} className="w-full h-full rounded-md" />
       </div>
       <div className="w-full h-full p-2 flex flex-col items-start justify-between">

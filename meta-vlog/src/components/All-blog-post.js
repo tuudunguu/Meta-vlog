@@ -8,13 +8,30 @@ export const AllBlogPost = ({ articles }) => {
         <div className="w-full h-fit flex flex-col items-center gap-y-8">
           <div className="w-full h-fit flex flex-col justify-between items-start gap-y-8">
             <h1 className="text-2xl font-bold text-[#181A2A]">All Blog Post</h1>
-            <div className="w-full h-fit flex flex-row justify-between items-center">
-              <h3 className="text-xs font-bold text-[#495057]">All</h3>
-              <h3 className="text-xs font-bold text-[#495057]">Design</h3>
-              <h3 className="text-xs font-bold text-[#495057]">Travel</h3>
-              <h3 className="text-xs font-bold text-[#495057]">Fashion</h3>
-              <h3 className="text-xs font-bold text-[#495057]">Technology</h3>
-              <h3 className="text-xs font-bold text-[#495057]">Branding</h3>
+            <div className="w-full h-fit flex flex-row justify-between items-center lg:w-full lg:h-fit lg:flex lg:flex-row lg:justify-between lg:items-center">
+              <div className="w-full h-fit flex flex-row justify-between items-center lg:flex lg:flex-row lg:justify-start lg:items-center lg:gap-x-5">
+                <button className="text-xs font-bold text-[#495057]">
+                  All
+                </button>
+                <button className="text-xs font-bold text-[#495057]">
+                  Design
+                </button>
+                <button className="text-xs font-bold text-[#495057]">
+                  Travel
+                </button>
+                <button className="text-xs font-bold text-[#495057]">
+                  Fashion
+                </button>
+                <button className="text-xs font-bold text-[#495057]">
+                  Technology
+                </button>
+                <button className="text-xs font-bold text-[#495057]">
+                  Branding
+                </button>
+              </div>
+              <button className=" lg:text-xs lg:font-bold lg:text-[#495057] lg:visible invisible  lg:whitespace-nowrap ">
+                View All
+              </button>
             </div>
           </div>
           <div className="w-full h-fit flex flex-wrap justify-between items-center gap-y-8 m-auto">

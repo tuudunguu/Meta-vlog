@@ -25,7 +25,7 @@ export const Carousel = ({ articles }) => {
   return (
     <Container background="bg-white">
       <div className="w-full h-fit px-4">
-        <div className="w-full h-fit flex flex-col items-center gap-y-8">
+        <div className="w-full h-fit flex flex-col items-center gap-y-8 lg:items-end ">
           <div className="relative w-full overflow-hidden rounded-xl">
             <div
               className="flex transition-transform duration-500 rounded-xl"

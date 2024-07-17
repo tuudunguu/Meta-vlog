@@ -2,25 +2,47 @@ import { Container } from "../components/Container";
 import { CarouselCard } from "../components/Carousel-card";
 import React, { useState, useEffect } from "react";
 
-export const Carousel = ({ articles }) => {
+export const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const [carousel, setCarousel] = useState([]);
+  const [perPage, setPerPage] = useState(10);
 
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
     }, 3000);
     return () => clearInterval(interval);
-  }, [currentIndex, articles.length]);
+  }, [currentIndex, carousel.length]);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % articles.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % carousel.length);
   };
+  console.log(nextSlide);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? articles.length - 1 : prevIndex - 1
+      prevIndex === 0 ? carousel.length - 1 : prevIndex - 1
     );
   };
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await fetch(
+          `https://dev.to/api/articles?page=1&per_page=${perPage}`
+        );
+
+        const data = await res.json();
+
+        setCarousel(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getData();
+  }, [perPage]);
 
   return (
     <Container background="bg-white">
@@ -31,7 +53,7 @@ export const Carousel = ({ articles }) => {
               className="flex transition-transform duration-500 rounded-xl"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {articles.map((item, index) => (
+              {carousel.map((item, index) => (
                 <div key={index} className="w-full flex-shrink-0">
                   <CarouselCard
                     photo={item.social_image}

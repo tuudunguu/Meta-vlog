@@ -1,7 +1,29 @@
 import { Container } from "../components/Container";
 import { TrendingCard } from "../components/trending-card";
+import React, { useState, useEffect } from "react";
 
-export const TrendingSection = ({ articles }) => {
+export const TrendingSection = () => {
+  const [trending, setTrending] = useState([]);
+  const [perPage, setPerPage] = useState(8);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await fetch(
+          `https://dev.to/api/articles?page=1&per_page=${perPage}`
+        );
+
+        const data = await res.json();
+
+        setTrending(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getData();
+  }, [perPage]);
+
   return (
     <Container background="bg-white">
       <div className="w-full h-fit px-4">
@@ -9,11 +31,11 @@ export const TrendingSection = ({ articles }) => {
           <h3 className="text-2xl text-[#181A2A] font-bold ">Trending</h3>
           <div className=" w-full overflow-scroll  rounded-xl">
             <div className="flex flex-row gap-x-5 items-center ">
-              {articles.map((item, index) => (
+              {trending.map((item, index) => (
                 <div key={index} className=" flex-shrink-0">
                   <TrendingCard
                     picture={item.social_image}
-                    tag={item.tag_list}
+                    tags={item.tag_list.slice(0, 1)}
                     header={item.title}
                   />
                 </div>

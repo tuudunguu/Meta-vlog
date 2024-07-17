@@ -1,6 +1,7 @@
 import { Container } from "../components/Container";
 import { TrendingCard } from "../components/trending-card";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 export const TrendingSection = () => {
   const [trending, setTrending] = useState([]);
@@ -32,13 +33,15 @@ export const TrendingSection = () => {
           <div className=" w-full overflow-scroll  rounded-xl">
             <div className="flex flex-row gap-x-5 items-center ">
               {trending.map((item, index) => (
-                <div key={index} className=" flex-shrink-0">
-                  <TrendingCard
-                    picture={item.social_image}
-                    tags={item.tag_list.slice(0, 1)}
-                    header={item.title}
-                  />
-                </div>
+                <Link key={item.id} href={`/All-blogs/${item.id}`}>
+                  <div key={index} className=" flex-shrink-0">
+                    <TrendingCard
+                      picture={item.social_image}
+                      tags={item.tag_list.slice(0, 1)}
+                      header={item.title}
+                    />
+                  </div>
+                </Link>
               ))}
             </div>
           </div>

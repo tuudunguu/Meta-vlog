@@ -1,6 +1,7 @@
 import { Container } from "../components/Container";
 import { CarouselCard } from "../components/Carousel-card";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 export const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -55,12 +56,14 @@ export const Carousel = () => {
             >
               {carousel.map((item, index) => (
                 <div key={index} className="w-full flex-shrink-0">
-                  <CarouselCard
-                    photo={item.social_image}
-                    tag={item.tag_list}
-                    header={item.title}
-                    date={item.published_at}
-                  />
+                  <Link key={item.id} href={`/All-blogs/${item.id}`}>
+                    <CarouselCard
+                      photo={item.social_image}
+                      tag={item.tag_list}
+                      header={item.title}
+                      date={item.published_at}
+                    />
+                  </Link>
                 </div>
               ))}
             </div>

@@ -31,7 +31,14 @@ const SinglePage = () => {
   return (
     <div className="flex flex-col gap-y-16 bg-white">
       <Navbar />
-      <BlogContent bigHeader={page.title} date={page.published_timestamp} />
+      <BlogContent
+        bigHeader={page.title}
+        date={page.published_timestamp}
+        editer={page.user?.name}
+        photo={page.social_image}
+        para={page.body_html}
+        title={page.title}
+      />
 
       <Footer />
     </div>

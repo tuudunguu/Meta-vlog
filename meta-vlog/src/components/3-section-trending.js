@@ -30,7 +30,7 @@ export const TrendingSection = () => {
       <div className="w-full h-fit px-4">
         <div className="w-full h-fit flex flex-col justify-center items-start gap-y-8">
           <h3 className="text-2xl text-[#181A2A] font-bold ">Trending</h3>
-          <div className=" w-full overflow-scroll  rounded-xl">
+          <div className=" w-full overflow-x-scroll  rounded-xl">
             <div className="flex flex-row gap-x-5 items-center ">
               {trending.map((item, index) => (
                 <Link key={item.id} href={`/All-blogs/${item.id}`}>

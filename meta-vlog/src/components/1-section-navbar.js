@@ -1,8 +1,15 @@
 import { Container } from "../components/Container";
 import { FaSearch } from "react-icons/fa";
 import Link from "next/link";
+import { useState } from "react";
+import { Drawer } from "../components/drawer";
 
 export const Navbar = () => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
   return (
     <Container background="bg-white">
       <div className="w-full h-[72px] px-[20px] py-[23px]  flex flex-row justify-between items-center gap-x-32">
@@ -12,7 +19,11 @@ export const Navbar = () => {
           </Link>
         </div>
         <div className="w-[32px] h-[32px] lg:hidden ">
-          <img src="/Pictures/Menu-outline.png" className="w-full h-full"></img>
+          <img
+            src="/Pictures/Menu-outline.png"
+            className="w-full h-full"
+            onClick={handleDrawer}
+          ></img>
         </div>
         <div className="hidden   lg:flex lg:flex-row lg:items-center lg:justify-center lg:gap-x-10 ">
           <Link href="/">
@@ -22,7 +33,9 @@ export const Navbar = () => {
             {" "}
             <h3 className="text-base text-[#3B3C4A] font-semibold">Blog</h3>
           </Link>
-          <h3 className="text-base text-[#3B3C4A] font-semibold">Contact</h3>
+          <Link href="#adda">
+            <h3 className="text-base text-[#3B3C4A] font-semibold">Contact</h3>
+          </Link>
         </div>
         <div className="hidden lg:flex lg:flex-row lg:justify-between lg:items-center lg:bg-[#F4F4F5] px-4 py-2 gap-x-8">
           <input
@@ -35,6 +48,7 @@ export const Navbar = () => {
           <FaSearch className="text-[#52525B] " />
         </div>
       </div>
+      <Drawer isOpen={isDrawerOpen} closeDrawer={handleDrawer} />
     </Container>
   );
 };

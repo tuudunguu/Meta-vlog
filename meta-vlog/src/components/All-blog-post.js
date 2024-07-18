@@ -62,11 +62,11 @@ export const AllBlogPost = ({ articles }) => {
             <h1 className="text-2xl font-bold text-[#181A2A]">All Blog Post</h1>
 
             <div className="w-full h-fit flex flex-row justify-between items-center lg:w-full lg:h-fit lg:flex lg:flex-row lg:justify-between lg:items-center">
-              <div className="w-full h-fit flex flex-row justify-between items-center lg:flex lg:flex-row lg:justify-start lg:items-center lg:gap-x-5">
+              <div className="w-full h-fit flex flex-wrap gap-4  items-center lg:flex lg:flex-row lg:justify-start lg:items-center lg:gap-x-5">
                 {categories.map((item) => (
                   <button
                     key={item}
-                    className="px-2 py-1 bg-gray-200 dark:bg-slate-800 rounded-md"
+                    className="px-2 py-1 bg-gray-200 text-black rounded-md"
                     style={{
                       color: category === item ? "#4B6BFB" : "",
                     }}

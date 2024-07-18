@@ -3,11 +3,15 @@ import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
     <Container background="bg-[#F6F6F7]">
-      <div className="w-full h-fit px-4 pt-16 flex flex-col items-center gap-y-6">
+      <div
+        id="adda"
+        className="w-full h-fit px-4 pt-16 flex flex-col items-center gap-y-6"
+      >
         <div className="w-full h-fit flex flex-col items-start gap-y-5">
           <div className="w-full h-fit flex flex-col items-start gap-y-6">
             <div className="w-full h-fit flex flex-col items-start gap-y-3">
@@ -28,9 +32,15 @@ export const Footer = () => {
             </div>
           </div>
           <div className="flex flex-row items-start gap-x-6">
-            <h3 className="text-base font-normal text-[#3B3C4A]">Home</h3>
-            <h3 className="text-base font-normal text-[#3B3C4A]">Blog</h3>
-            <h3 className="text-base font-normal text-[#3B3C4A]">Contact</h3>
+            <Link href="/">
+              <h3 className="text-base font-normal text-[#3B3C4A]">Home</h3>
+            </Link>
+            <Link href="/All-blogs">
+              <h3 className="text-base font-normal text-[#3B3C4A]">Blog</h3>
+            </Link>
+            <Link href="/contact">
+              <h3 className="text-base font-normal text-[#3B3C4A]">Contact</h3>
+            </Link>
           </div>
           <div className="flex flex-row items-start gap-x-6">
             <FaFacebook className="text-[#6D6E76]" />
